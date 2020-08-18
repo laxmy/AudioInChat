@@ -1,12 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import React, { useState} from 'react'
+import { StyleSheet, View } from 'react-native'
+
+import * as Font from 'expo-font'
+import { AppLoading } from 'expo'
+import ChatView from './screens/chatView';
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'ubuntu-reg': require('./assets/fonts/Ubuntu-Regular.ttf'),
+    'ubuntu-bold': require('./assets/fonts/Ubuntu-Medium.ttf'),
+    'ubuntu-light': require('./assets/fonts/Ubuntu-Light.ttf')
+  })
+}
 
 export default function App() {
+  const [fontLoaded, setFontLoaded] = useState(false)
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={()=> conaole.log('Fonts not loaded')}
+      />
+    )
+  }
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+     <ChatView />
     </View>
   );
 }
@@ -14,7 +36,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },

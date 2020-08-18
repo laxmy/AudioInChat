@@ -8,11 +8,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/slider": "^3.0.3",
+    "chat": "^1.0.8",
     "expo": "~38.0.8",
+    "expo-av": "^8.4.0",
     "expo-status-bar": "^1.0.2",
+    "gifted": "0.0.1",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-gifted-chat": "^0.16.3",
+    "react-native-paper": "^4.0.1",
+    "react-native-vector-icons": "^7.0.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
